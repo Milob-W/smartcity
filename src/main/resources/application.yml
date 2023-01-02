@@ -1,0 +1,27 @@
+# 端口号
+server:
+  port: 8080
+# mybatis
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml #扫描映射文件在mapper及其子目录下所有xml文件
+  type-aliases-package: com.briup.smartcity80.bean
+# 统一设置时间格式
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:  # mysql 连接信息
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smartcity?allowPublicKeyRetrieval=true&characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 119255
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher # 解决swagger2.9.2版本启动报错null
+# 日志信息：显示mybatis 执行sql信息
+logging:
+  level:
+    com.briup.smartcity80.dao: debug
+# pageHelper 分页插件信息
+pagehelper:
+  reasonable: true
