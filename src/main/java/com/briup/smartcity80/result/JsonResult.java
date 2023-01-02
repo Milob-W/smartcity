@@ -3,18 +3,25 @@ package com.briup.smartcity80.result;
 import com.briup.smartcity80.enums.InternalErrorEnum;
 import com.briup.smartcity80.enums.SuccessEnum;
 import com.briup.smartcity80.exception.BusinessException;
-
-import java.io.Serializable;
+import com.briup.smartcity80.utils.CustomString;
 
 /**
  * @Author congee(congee02 @ 163.com)
  * @Date 1/2/2023 7:30 PM
  */
-public class JsonResult implements Serializable {
+public class JsonResult {
+
+    private static String dataMessage;
 
     private int code;
     private Object data;
     private String message;
+
+    public JsonResult(CustomString customString) {
+        this.code = SuccessEnum.OK.getCode();
+        this.data = customString.getData();
+        this.message = SuccessEnum.OK.getMsg();
+    }
 
     public JsonResult(Object data) {
         this.code = SuccessEnum.OK.getCode();
@@ -36,14 +43,24 @@ public class JsonResult implements Serializable {
 
     public JsonResult(RuntimeException e) {
         this.data = null;
-        if (e instanceof BusinessException) {
-            BusinessException be = (BusinessException) e;
-            this.code = be.getCode();
-            this.message = be.getMessage();
-            return;
-        }
         this.code = InternalErrorEnum.INTERNAL_ERROR.getCode();
         this.message = InternalErrorEnum.INTERNAL_ERROR.getMsg();
+    }
+
+    public JsonResult(BusinessException be) {
+        this.code = be.getCode();
+        this.message = be.getMessage();
+        return;
+    }
+
+    public JsonResult() {
+        this.code = SuccessEnum.OK.getCode();
+        this.data = dataMessage;
+        this.message = SuccessEnum.OK.getMsg();
+    }
+
+    public static void setDataMessage(String dataMessage) {
+        JsonResult.dataMessage = dataMessage;
     }
 
     public int getCode() {
@@ -68,5 +85,14 @@ public class JsonResult implements Serializable {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "JsonResult{" +
+                "code=" + code +
+                ", data=" + data +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

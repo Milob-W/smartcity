@@ -9,7 +9,7 @@ import com.briup.smartcity80.service.concrete.basic.IBaseUserCRUDService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-/**
+/** 用户增删改查的操作的实现
  * @Author congee(congee02 @ 163.com)
  * @Date 1/2/2023 6:50 PM
  */
@@ -46,11 +46,11 @@ public class BaseUserCRUDServiceImpl implements IBaseUserCRUDService {
         }
         BaseUser byEmail = extMapper.selectByEmail(record.getEmail());
         if (byEmail != null) {
-            throw new BusinessException("该手机号已被其他账户使用", BusinessErrorEnum.DUPLICATE_EMAIL);
+            throw new BusinessException("该邮箱已被其他账户使用", BusinessErrorEnum.DUPLICATE_EMAIL);
         }
         BaseUser byUsername = extMapper.selectByUsername(record.getUsername());
         if (byUsername != null) {
-            throw new BusinessException("该手机号已被其他账户使用", BusinessErrorEnum.DUPLICATE_USERNAME);
+            throw new BusinessException("该用户名已被其他账户使用", BusinessErrorEnum.DUPLICATE_USERNAME);
         }
         return mapper.insertSelective(record);
     }

@@ -12,10 +12,14 @@ public enum BusinessErrorEnum {
     USER_LOCKED(10003, "账号被锁定，请联系账户管理员"),
     DUPLICATE_EMAIL(10005, "此邮箱已被注册"),
     DUPLICATE_USERNAME(10002, "此用户名已被注册"),
+    INVALID_LOGIN_CREDENTIAL(10006, "无效的登录凭证"),
 
-    DATA_ERROR(20001,"数据错误");
 
-    private Integer code;
+    DATA_ERROR(20001,"数据错误"),
+    
+    ;
+
+    private int code;
     private String msg;
 
     BusinessErrorEnum(Integer code, String msg) {

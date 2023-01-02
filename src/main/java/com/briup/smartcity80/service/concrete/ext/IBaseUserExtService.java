@@ -3,7 +3,7 @@ package com.briup.smartcity80.service.concrete.ext;
 import com.briup.smartcity80.bean.basic.BaseUser;
 import com.briup.smartcity80.service.base.ext.IExtService;
 
-/**
+/** 用户的业务操作
  * @Author congee(congee02 @ 163.com)
  * @Date 1/2/2023 6:46 PM
  */
@@ -17,11 +17,18 @@ public interface IBaseUserExtService extends IExtService<BaseUser> {
      */
     String login(String username,String password);
 
-    //通过token获取当前登录用户的信息
+
+    /** 通过token获取当前登录用户的信息
+     * @param token
+     * @return 用户对象
+     */
     BaseUser currentUserInfo(String token);
 
     void logout();
 
+    /** 注册一个用户
+     * @param user 注册用户信息
+     */
     void register(BaseUser user);
 
 }

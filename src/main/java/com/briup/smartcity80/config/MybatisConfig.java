@@ -10,5 +10,4 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @MapperScan(basePackages = "com.briup.smartcity80.dao")
 public class MybatisConfig {
-
 }
