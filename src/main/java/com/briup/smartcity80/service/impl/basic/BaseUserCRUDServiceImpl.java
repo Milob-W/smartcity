@@ -5,7 +5,7 @@ import com.briup.smartcity80.dao.basic.BaseUserMapper;
 import com.briup.smartcity80.dao.ext.BaseUserExtMapper;
 import com.briup.smartcity80.enums.BusinessErrorEnum;
 import com.briup.smartcity80.exception.BusinessException;
-import com.briup.smartcity80.service.concrete.basic.IBaseUserCRUDService;
+import com.briup.smartcity80.service.base.basic.ICRUDService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Slf4j
-public class BaseUserCRUDServiceImpl implements IBaseUserCRUDService {
+public class BaseUserCRUDServiceImpl implements ICRUDService<BaseUser> {
 
     private final BaseUserMapper mapper;
     private final BaseUserExtMapper extMapper;

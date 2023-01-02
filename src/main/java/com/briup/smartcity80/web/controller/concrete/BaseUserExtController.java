@@ -4,7 +4,7 @@ import com.briup.smartcity80.bean.basic.BaseUser;
 import com.briup.smartcity80.consts.MessageConsts;
 import com.briup.smartcity80.consts.api.BusinessApiConsts;
 import com.briup.smartcity80.result.JsonResult;
-import com.briup.smartcity80.service.concrete.ext.IBaseUserExtService;
+import com.briup.smartcity80.service.base.ext.IBaseUserExtService;
 import com.briup.smartcity80.utils.CustomString;
 import com.briup.smartcity80.web.vo.BaseUserRegisterVO;
 import lombok.extern.slf4j.Slf4j;

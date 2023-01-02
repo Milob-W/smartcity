@@ -71,7 +71,7 @@ public class LogAspect {
 
     // 特殊处理 login 无 token 的日志记录
     @AfterReturning
-            (pointcut = "execution(* com.briup.smartcity80.service.concrete.ext.IBaseUserExtService.login(..))",
+            (pointcut = "execution(* com.briup.smartcity80.service.base.ext.IBaseUserExtService.login(..))",
                     returning = "token")
     public void loginLog(String token) {
         HttpServletRequest request =

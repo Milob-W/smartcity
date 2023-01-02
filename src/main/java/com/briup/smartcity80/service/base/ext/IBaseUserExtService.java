@@ -1,13 +1,12 @@
-package com.briup.smartcity80.service.concrete.ext;
+package com.briup.smartcity80.service.base.ext;
 
 import com.briup.smartcity80.bean.basic.BaseUser;
-import com.briup.smartcity80.service.base.ext.IExtService;
 
 /** 用户的业务操作
  * @Author congee(congee02 @ 163.com)
  * @Date 1/2/2023 6:46 PM
  */
-public interface IBaseUserExtService extends IExtService<BaseUser> {
+public interface IBaseUserExtService {
 
     /**
      *  用户登录接口,返回token字符串
